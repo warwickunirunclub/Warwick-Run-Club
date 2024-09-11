@@ -4,57 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warwick University Run Club</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        h1 {
-            margin-left: 20px;
-        }
-        .route {
-            margin-bottom: 30px;
-        }
-    </style>
-    <script src="https://strava-embeds.com/embed.js"></script>
 </head>
 <body>
-    <header>
-        <img src="logo.jpeg" alt="Warwick University Run Club Logo" width="100">
-        <h1>Warwick University Run Club</h1>
-    </header>
-    <main id="routes-container">
-        <!-- Strava routes will be added here -->
-    </main>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Function to add a new Strava route
-            function addStravaRoute(title, embedId) {
-                const routesContainer = document.getElementById('routes-container');
-                const routeElement = document.createElement('div');
-                routeElement.className = 'route';
-                routeElement.innerHTML = `
-                    <h2>${title}</h2>
-                    <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="${embedId}" data-style="standard" data-from-embed="false"></div>
-                `;
-                routesContainer.appendChild(routeElement);
-            }
-
-            // Add Strava route
-            addStravaRoute('Warwick Uni Run Club - Leam Social Run 1', '3230138417848051220');
-
-            // Force Strava embed script to run again
-            if (window.StravaEmbeds) {
-                window.StravaEmbeds.FancyEmbed.init();
-            }
-        });
-    </script>
+    <h1>Warwick University Run Club</h1>
+    <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3230138417848051220" data-style="standard" data-from-embed="false"></div>
+    <script src="https://strava-embeds.com/embed.js"></script>
 </body>
 </html>
