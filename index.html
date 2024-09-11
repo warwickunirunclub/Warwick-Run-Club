@@ -4,10 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warwick University Run Club</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #1e2240;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        header img {
+            width: 80px;
+            height: auto;
+            margin-right: 20px;
+        }
+        h1 {
+            color: #fff;
+            margin: 0;
+        }
+        .route {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .route h2 {
+            color: #1e2240;
+            margin-top: 0;
+        }
+    </style>
+    <script src="https://strava-embeds.com/embed.js"></script>
 </head>
 <body>
-    <h1>Warwick University Run Club</h1>
-    <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="3230138417848051220" data-style="standard" data-from-embed="false"></div>
-    <script src="https://strava-embeds.com/embed.js"></script>
+    <header>
+        <img src="logo.jpeg" alt="Warwick University Run Club Logo">
+        <h1>Warwick University Run Club</h1>
+    </header>
+    <main id="routes-container">
+        <!-- Strava routes will be added here -->
+    </main>
+    <script>
+        function addStravaRoute(title, embedId) {
+            const routesContainer = document.getElementById('routes-container');
+            const routeElement = document.createElement('div');
+            routeElement.className = 'route';
+            routeElement.innerHTML = `
+                <h2>${title}</h2>
+                <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="${embedId}" data-style="standard" data-from-embed="false"></div>
+            `;
+            routesContainer.appendChild(routeElement);
+        }
+
+        // Add routes here
+        addStravaRoute('Leam Social Run 1', '3230138417848051220');
+        // You can add more routes like this:
+        // addStravaRoute('Another Run', '1234567890123456789');
+
+        // Initialize Strava embeds
+        if (window.StravaEmbeds) {
+            window.StravaEmbeds.FancyEmbed.init();
+        }
+    </script>
 </body>
 </html>
