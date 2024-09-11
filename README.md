@@ -10,7 +10,7 @@ Welcome to the Warwick University Run Club website repository! This README will 
    ```javascript
    // Add routes here
    ```
-   [Click here to go directly to this line](https://github.com/CWinmill/Warwick-Run-Club/blob/main/index.html#L55)
+   [Click here to go directly to this line](https://github.com/CWinmill/Warwick-Run-Club/blob/main/index.html#L78)
 
 4. To add a new route, add a new line below the existing `addStravaRoute` call, following this format:
    ```javascript
