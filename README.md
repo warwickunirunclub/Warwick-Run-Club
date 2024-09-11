@@ -37,7 +37,7 @@ The logo is referenced in the `index.html` file. If you need to update the logo:
 
 1. Upload your new logo file to the repository. Make sure it's named `logo.jpeg`.
 2. If you're using a different file name or format, you'll need to update the reference in the `index.html` file.
-   [Click here to go to the logo reference in index.html](https://github.com/yourusername/your-repo-name/blob/main/index.html#L43)
+   [Click here to go to the logo reference in index.html](https://github.com/CWinmill/Warwick-Run-Club/blob/main/index.html#L49)
 
 ## Need Help?
 
