@@ -32,21 +32,21 @@
     <main id="routes-container">
         <!-- Strava routes will be added here -->
     </main>
+    <script src="https://strava-embeds.com/embed.js"></script>
     <script>
         // Function to add a new Strava route
-        function addStravaRoute(title, embedCode) {
+        function addStravaRoute(title, embedId) {
             const routesContainer = document.getElementById('routes-container');
             const routeElement = document.createElement('div');
             routeElement.className = 'route';
             routeElement.innerHTML = `
                 <h2>${title}</h2>
-                ${embedCode}
+                <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="${embedId}" data-style="standard" data-from-embed="false"></div>
             `;
             routesContainer.appendChild(routeElement);
         }
 
-        // Example usage:
-        // addStravaRoute('Campus Loop', '<iframe src="https://www.strava.com/routes/2859616468185788390/embed" width="100%" height="405" frameborder="0" scrolling="no"></iframe>');
+        // Add Strava route
         addStravaRoute('Warwick Uni Run Club - Leam Social Run 1', '3230138417848051220');
     </script>
 </body>
