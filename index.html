@@ -17,7 +17,7 @@
         header {
             display: flex;
             align-items: center;
-            background-color: #1e2240;
+            background-color: #f44336;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 20px;
@@ -43,7 +43,6 @@
             margin-top: 0;
         }
     </style>
-    <script src="https://strava-embeds.com/embed.js"></script>
 </head>
 <body>
     <header>
@@ -60,20 +59,36 @@
             routeElement.className = 'route';
             routeElement.innerHTML = `
                 <h2>${title}</h2>
-                <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="${embedId}" data-style="standard" data-from-embed="false"></div>
+                <div class="strava-embed-placeholder" data-embed-type="route" data-embed-id="${embedId}" data-style="standard"></div>
             `;
             routesContainer.appendChild(routeElement);
         }
 
-        // Add routes here
-        addStravaRoute('Leam Social Run 1', '3230138417848051220');
-        // You can add more routes like this:
-        // addStravaRoute('Another Run', '1234567890123456789');
-
-        // Initialize Strava embeds
-        if (window.StravaEmbeds) {
-            window.StravaEmbeds.FancyEmbed.init();
+        function loadStravaScript() {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = 'https://strava-embeds.com/embed.js';
+                script.onload = resolve;
+                script.onerror = reject;
+                document.body.appendChild(script);
+            });
         }
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Add routes here
+            addStravaRoute('Leam Social Run 1', '3230138417848051220');
+            // You can add more routes like this:
+            // addStravaRoute('Another Run', '1234567890123456789');
+
+            try {
+                await loadStravaScript();
+                if (window.StravaEmbeds) {
+                    window.StravaEmbeds.FancyEmbed.init();
+                }
+            } catch (error) {
+                console.error('Failed to load Strava embed script:', error);
+            }
+        });
     </script>
 </body>
 </html>
